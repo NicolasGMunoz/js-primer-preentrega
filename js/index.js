@@ -1,6 +1,8 @@
 /* Solicitamos el nombre del usuario simulando un login */
 const nombre = prompt ("Ingrese su nombre y apellido por favor");
 
+
+/* Funcion para simular el ecommerce */
 function tienda(producto){
     switch (producto){
         case 1:
@@ -32,7 +34,7 @@ function tienda(producto){
     }
 }
 
-
+/* Funcion para simular el tipo de pago y el interes*/
 function pago(cuotas, monto){
     let interes = 0;
     switch (cuotas){
@@ -62,6 +64,9 @@ function pago(cuotas, monto){
 
 }
 
+
+/* Condicional de acceso a la tienda */
+
 if (nombre !== ""){
     alert (`Hola ${nombre}. \nBienvenido a Nimutech Geek Store \nHaga click en aceptar para ingresar al menú`);
     let accion1 = Number(prompt ("Estas en el menú:\nPara compras ingresa 1\nPara finalizar ingresa 0"));
@@ -88,7 +93,7 @@ if (nombre !== ""){
     
 
 } else {
-    alert("Nombre no ingresado. \nRecuerde que para poder continuar si o si debe ingresar su nombre.");
+    alert("Nombre no ingresado. \nRecuerde que para poder continuar es necesario ingresar su nombre.");
 }
 
 
