@@ -1,5 +1,5 @@
-/* Solicitamos el nombre del usuario simulando un login */
-const nombre = prompt ("Ingrese su nombre y apellido por favor");
+let verdad = true;
+
 
 
 /* Funcion para simular el ecommerce */
@@ -26,7 +26,7 @@ function tienda(producto){
             alert ("El producto elegido es: " + producto + "\nY su valor es de: $" + valor);
             break;
         case 5:
-            alert ("Adios " + nombre);
+            alert ("Adios " + pedirNombre(nombre));
             break;
         default:
             alert ("Ingreso una opción incorrecta o no ingreso niguna opción");
@@ -64,37 +64,36 @@ function pago(cuotas, monto){
 
 }
 
+while (verdad){
+    /* Solicitamos el nombre del usuario simulando un login */
+    const nombre = prompt ("Ingrese su nombre y apellido por favor");
+    /* Condicion que corta el while y ejecuta el programa */
 
-/* Condicional de acceso a la tienda */
+    if(nombre != ""){
+        verdad = false;
+        alert (`Hola ${nombre}. \nBienvenido a Nimutech Geek Store \nHaga click en aceptar para ingresar al menú`);
+        let accion1 = Number(prompt ("Estas en el menú:\nPara compras ingresa 1\nPara finalizar ingresa 0"));
+        if(accion1 === 1){
+            alert ("En la siguiente pestaña debe elegir el número segun el producto que desee.");
+            let producto = Number(prompt ("1) Mate 3D Naruto $2000 \n2) Remera negra Evangelion $3000 \n3) Remera negra Boku no Hero $3000 \n4) Figura 3D Groot $2000 \n5) Salir"));
+            let valor  = 0;
+            tienda(producto);
+            if(producto === 1 || producto == 2 || producto == 3 || producto == 4){
+                alert ("En la siguiente pestaña debe elegir el número segun como desee abonar.");
+                let cuotas = Number(prompt("1) 1 solo pago \n3) 3 cuotas \n6) 6 cuotas \n12) 12 cuotas"));
+                pago (cuotas);
+                alert ("Muchas gracias por su compra! \nRecuerde seguirnos en instagram :) \nnimutech_geekstore ");
+            }else{
 
-if (nombre !== ""){
-    alert (`Hola ${nombre}. \nBienvenido a Nimutech Geek Store \nHaga click en aceptar para ingresar al menú`);
-    let accion1 = Number(prompt ("Estas en el menú:\nPara compras ingresa 1\nPara finalizar ingresa 0"));
-    if (accion1 === 1){
-        alert ("En la siguiente pestaña debe elegir el número segun el producto que desee.");
-        let producto = Number(prompt ("1) Mate 3D Naruto $2000 \n2) Remera negra Evangelion $3000 \n3) Remera negra Boku no Hero $3000 \n4) Figura 3D Groot $2000 \n5) Salir"));
-        let valor  = 0;
-        tienda(producto);
+            }
 
-        if (producto === 1 || producto == 2 || producto == 3 || producto == 4){
-            alert ("En la siguiente pestaña debe elegir el número segun como desee abonar.");
-            let cuotas = Number(prompt("1) 1 solo pago \n3) 3 cuotas \n6) 6 cuotas \n12) 12 cuotas"));
-            pago (cuotas);
-            alert ("Muchas gracias por su compra! \nRecuerde seguirnos en instagram :) \nnimutech_geekstore ");
+        }else if (accion1 != 1 && accion1 !=0 ){
+            alert ("Ingresaste una opcion incorrecta"); 
         }else{
-
+            alert ("Adios " + nombre)
         }
-
-    } else if (accion1 != 1 && accion1 !=0 ) {
-        alert ("Ingresaste una opcion incorrecta"); 
-    } else{
-        alert ("Adios " + nombre)
+    }else{
+        alert("Nombre no ingresado. \nRecuerde que para poder continuar es necesario ingresar su nombre.");
     }
-    
 
-} else {
-    alert("Nombre no ingresado. \nRecuerde que para poder continuar es necesario ingresar su nombre.");
 }
-
-
-
